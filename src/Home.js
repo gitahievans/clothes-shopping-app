@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 import Item from "./Item";
+import Cart from "./Cart";
 import ItemAddForm from "./ItemAddForm";
 import ItemSearchForm from "./ItemSearchForm";
 
@@ -44,12 +46,19 @@ function Home() {
   });
 
   return (
-    <div className="container">
-      <ItemSearchForm />
-      <div className="clothes-container">{clothes}</div>
+    <>
+      <Routes>
+        {" "}
+        <Route path="/cart" element={<Cart />}></Route>
+      </Routes>
 
-      <ItemAddForm />
-    </div>
+      <div className="container">
+        <ItemSearchForm />
+        <div className="clothes-container">{clothes}</div>
+
+        <ItemAddForm />
+      </div>
+    </>
   );
 }
 
