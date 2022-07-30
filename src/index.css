@@ -1,0 +1,81 @@
+.navbar  {
+    background-color: cadetblue;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-around;
+}
+
+.clothes-container {
+    
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 1rem;
+    
+            flex-grow: 1;
+        
+}
+
+/*CARD*/
+.card {
+    overflow: hidden;
+    box-shadow: 0 2px 20px cadetblue;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 400ms ease-in;
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.card:hover {
+    transform: scale(1.012);
+}
+
+.card-image {
+    height: 13rem;
+    width: 100%;
+}
+.delete-icon-image {
+    height: 25px;
+    width: 25px;
+}
+.card-btns {
+    margin-bottom: 5px;
+}
+.remove {
+    width: 200px;
+    display: flex;
+    align-items: flex-end;
+    cursor: pointer;
+}
+.remove img {
+    cursor: pointer;
+}
+.details-button,
+.cart-button {
+    padding: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    border: 2px solid cadetblue;
+    background: transparent;
+    border-radius: 2px;
+    margin-top: 1px;
+    box-shadow: 0 2px 20px cadetblue;
+    cursor: pointer;
+    ;
+}
+
+/*ITEM SEARCH FORM*/
+.search-image {
+    height: 35px;
+    width: 35px;
+}
