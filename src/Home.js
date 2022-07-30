@@ -7,6 +7,7 @@ import ItemSearchForm from "./ItemSearchForm";
 
 function Home() {
   const [items, setItems] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
     fetch("https://shopping-app-evans.herokuapp.com/clothes")
