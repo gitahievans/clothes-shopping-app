@@ -7,7 +7,6 @@ import ItemSearchForm from "./ItemSearchForm";
 
 function Home() {
   const [items, setItems] = useState([]);
-  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
     fetch("https://shopping-app-evans.herokuapp.com/clothes")
@@ -48,15 +47,12 @@ function Home() {
 
   return (
     <>
-      <Routes>
-        {" "}
+      {/*<Routes>
         <Route path="/cart" element={<Cart />}></Route>
-      </Routes>
-
+      </Routes>*/}
       <div className="container">
         <ItemSearchForm />
         <div className="clothes-container">{clothes}</div>
-
         <ItemAddForm />
       </div>
     </>
