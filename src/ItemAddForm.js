@@ -70,6 +70,7 @@ function ItemAddForm() {
           value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
         />
+        {/*<button type="upload">Upload</button>*/}
         <div className="select">
           <select
             className="selector"
@@ -81,13 +82,6 @@ function ItemAddForm() {
             <option value="All">All</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
-          </select>
-          <select className="selector" name="select-age">
-            <option value="Select">Select Age-group</option>
-            <option value="All">All</option>
-            <option value="Kids">Kids</option>
-            <option value="Teens">Teens</option>
-            <option value="Adults">Adults</option>
           </select>
         </div>
         <div>
