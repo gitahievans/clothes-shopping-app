@@ -8,19 +8,25 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
 
   const addToCart = (item) => {
+    // const cartItem = Object.values(item);
     console.log(item);
+    // console.log(cartItem);
+
     setCartItems([...cartItems, item]);
-    console.log(cartItems);
   };
+  console.log(cartItems);
 
   return (
     <div>
       <>
-        <Navbar />
+        <Navbar cart={cartItems} />
       </>
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/cart" element={<Cart />}></Route>
+        <Route
+          path="/"
+          element={<Home onAddToCart={addToCart} cart={cartItems} />}
+        ></Route>
+        <Route path="/cart" element={<Cart cartItems={cartItems} />}></Route>
       </Routes>
     </div>
   );

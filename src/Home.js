@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import Item from "./Item";
 import Cart from "./Cart";
 import ItemAddForm from "./ItemAddForm";
 import ItemSearchForm from "./ItemSearchForm";
 
-function Home() {
+function Home({ onAddToCart, cart }) {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -16,19 +17,31 @@ function Home() {
       });
   }, []);
 
-  const clothes = items.map((item) => {
+  function Item({
+    item,
+    itemName,
+    itemPrice,
+    itemColor,
+    itemGender,
+    itemImage,
+    itemId,
+  }) {
     return (
-      <div className="card" key={item.id}>
+      <div className="card" key={itemId}>
         <div className="card-body">
-          <img className="card-image" src={item.image} />
-          <p className="card-title">{item.name}</p>
-          <p className="card-price">{item.price}</p>
+          <img className="card-image" src={itemImage} />
+          <p className="card-title">{itemName}</p>
+          <p className="card-price">{itemPrice}</p>
           <div className="card-btns">
             <div>
-              <button className="details-button">View details</button>
+              <Link to={"/product/" + { itemId }}>
+                <button className="details-button">View details</button>
+              </Link>
             </div>
             <div className="card-bottom">
-              <button className="cart-button">Add to Cart</button>
+              <button className="cart-button" onClick={() => onAddToCart(item)}>
+                Add to Cart
+              </button>
               <div className="remove">
                 <button className="delete">
                   <img
@@ -43,7 +56,20 @@ function Home() {
         </div>
       </div>
     );
-  });
+  }
+
+  const products = items.map((item) => (
+    <Item
+      item={item}
+      itemName={item.name}
+      itemId={item.id}
+      itemPrice={item.price}
+      itemColor={item.color}
+      itemGender={item.gender}
+      itemImage={item.image}
+      key={item.id}
+    />
+  ));
 
   return (
     <>
@@ -52,7 +78,7 @@ function Home() {
       </Routes>*/}
       <div className="container">
         <ItemSearchForm />
-        <div className="clothes-container">{clothes}</div>
+        <div className="clothes-container">{products}</div>
         <ItemAddForm />
       </div>
     </>
