@@ -6,11 +6,13 @@ function Cart({ cartItems }) {
     <div className="cart-object">
       {cartItems.length === 0 && <div>Cart is empty</div>}
       {cartItems.map((item) => (
-        <div key={item.id} className="cart-item">
-          <img src={item.image} alt={item.name} className="cart-image" />
-          <p>{item.name}</p>
-          <p>{item.price}</p>
-          <button>Remove from Cart</button>
+        <div key={item.id} className="card">
+          <div className="card-body">
+            <img src={item.image} alt={item.name} className="card-image" />
+            <p className="card-title">{item.name}</p>
+            <p className="card-price">{item.price}</p>
+            <button>Remove from Cart</button>
+          </div>
         </div>
       ))}
     </div>
