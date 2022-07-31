@@ -34,6 +34,11 @@ function Home({ onAddToCart, cart }) {
     </article>
   );
 
+  const handleDelete = (deletedItem) => {
+    const updatedList = items.filter((item) => item.id !== deletedItem.id);
+    setItems(updatedList);
+  };
+
   const products = items.map((item) => (
     <Item
       item={item}
@@ -45,6 +50,7 @@ function Home({ onAddToCart, cart }) {
       itemImage={item.image}
       key={item.id}
       onAddToCart={onAddToCart}
+      onDeleteItem={handleDelete}
     />
   ));
 

@@ -10,7 +10,16 @@ function Item({
   itemImage,
   itemId,
   onAddToCart,
+  onDeleteItem,
 }) {
+  // delete ITEM
+  const handleDelete = () => {
+    fetch(`https://shopping-app-evans.herokuapp.com/clothes/${itemId}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then(() => onDeleteItem(item));
+  };
   return (
     <div className="card" key={itemId}>
       <div className="card-body">
@@ -28,7 +37,7 @@ function Item({
               Add to Cart
             </button>
             <div className="remove">
-              <button className="delete">
+              <button className="delete" onClick={() => onDeleteItem(item)}>
                 <img
                   className="delete-icon-image"
                   src="https://cdn-icons.flaticon.com/png/512/4980/premium/4980320.png?token=exp=1659044681~hmac=c6d277c1b22aebcd2e2f1c05bfb221f3"
