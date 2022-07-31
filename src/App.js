@@ -21,14 +21,16 @@ function App() {
       <>
         <Navbar cart={cartItems} />
       </>
-      <Routes>
-        <Route
-          path="/"
-          element={<Home onAddToCart={addToCart} cart={cartItems} />}
-        ></Route>
-        <Route path="/cart" element={<Cart cartItems={cartItems} />}></Route>
-        <Route path="/product/:itemId" element={<ProductDetails />}></Route>
-      </Routes>
+      <div className="main-container">
+        <Routes>
+          <Route
+            path="/"
+            element={<Home onAddToCart={addToCart} cart={cartItems} />}
+          ></Route>
+          <Route path="/cart" element={<Cart cartItems={cartItems} />}></Route>
+          <Route path="/product/:itemId" element={<ProductDetails />}></Route>
+        </Routes>
+      </div>
     </div>
   );
 }

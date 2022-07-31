@@ -56,8 +56,8 @@ function Home({ onAddToCart, cart }) {
 
   return (
     <>
+      <ItemSearchForm clothes={items} setSearchResults={setSearchResults} />
       <div className="container">
-        <ItemSearchForm clothes={items} setSearchResults={setSearchResults} />
         <div className="clothes-container">{products}</div>
         <ItemAddForm />
       </div>
