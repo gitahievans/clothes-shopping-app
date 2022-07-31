@@ -9,11 +9,12 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
 
   const addToCart = (item) => {
-    // const cartItem = Object.values(item);
     console.log(item);
-    // console.log(cartItem);
-
-    setCartItems([...cartItems, item]);
+    if (cartItems.includes(item)) {
+      setCartItems([cartItems]);
+    } else {
+      setCartItems([...cartItems, item]);
+    }
   };
 
   return (

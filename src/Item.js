@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Item({
@@ -11,7 +11,10 @@ function Item({
   itemId,
   onAddToCart,
   onDeleteItem,
+  onCarting,
 }) {
+  const [inCart, setInCart] = useState(false);
+
   // delete ITEM
   const handleDelete = () => {
     fetch(`https://shopping-app-evans.herokuapp.com/clothes/${itemId}`, {
@@ -20,6 +23,11 @@ function Item({
       .then((res) => res.json())
       .then(() => onDeleteItem(item));
   };
+
+  function carting() {
+    setInCart((inCart) => !inCart);
+  }
+
   return (
     <div className="card" key={itemId}>
       <div className="card-body">
@@ -33,8 +41,14 @@ function Item({
             </Link>
           </div>
           <div className="card-bottom">
-            <button className="cart-button" onClick={() => onAddToCart(item)}>
-              Add to Cart
+            <button
+              className="cart-button"
+              onClick={() => {
+                onAddToCart(item);
+                carting();
+              }}
+            >
+              {inCart ? "Remove" : "Add to Cart"}
             </button>
             <div className="remove">
               <button className="delete" onClick={() => handleDelete()}>
