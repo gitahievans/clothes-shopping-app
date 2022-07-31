@@ -9,7 +9,7 @@ function Item({
   itemGender,
   itemImage,
   itemId,
-  onAddToCart,
+  addToCart,
   onDeleteItem,
   onCarting,
 }) {
@@ -41,13 +41,7 @@ function Item({
             </Link>
           </div>
           <div className="card-bottom">
-            <button
-              className="cart-button"
-              onClick={() => {
-                onAddToCart(item);
-                carting();
-              }}
-            >
+            <button className="cart-button" onClick={() => addToCart(item)}>
               {inCart ? "Remove" : "Add to Cart"}
             </button>
             <div className="remove">

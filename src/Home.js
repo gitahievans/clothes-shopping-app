@@ -6,7 +6,7 @@ import Cart from "./Cart";
 import ItemAddForm from "./ItemAddForm";
 import ItemSearchForm from "./ItemSearchForm";
 
-function Home({ onAddToCart, cart }) {
+function Home({ addToCart, cart }) {
   const [items, setItems] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   // const [inCart, setInCart] = useState(false);
@@ -54,7 +54,7 @@ function Home({ onAddToCart, cart }) {
       itemGender={item.gender}
       itemImage={item.image}
       key={item.id}
-      onAddToCart={onAddToCart}
+      addToCart={addToCart}
       onDeleteItem={handleDelete}
     />
   ));
