@@ -14,13 +14,25 @@ function Home({ onAddToCart, cart }) {
     fetch("https://shopping-app-evans.herokuapp.com/clothes")
       .then((r) => r.json())
       .then((clothesData) => {
-        set(clothesData);
+        setItems(clothesData);
         return clothesData;
       })
       .then((clothesData) => {
         setSearchResults(clothesData);
       });
   }, []);
+
+  const results = searchResults.map((cloth) => (
+    <Item key={cloth.id} cloth={cloth} />
+  ));
+
+  const content = results?.length ? (
+    results
+  ) : (
+    <article>
+      <p>No Matching Items</p>
+    </article>
+  );
 
   const products = items.map((item) => (
     <Item
@@ -32,6 +44,7 @@ function Home({ onAddToCart, cart }) {
       itemGender={item.gender}
       itemImage={item.image}
       key={item.id}
+      onAddToCart={onAddToCart}
     />
   ));
 

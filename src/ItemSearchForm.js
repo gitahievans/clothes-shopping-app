@@ -10,6 +10,7 @@ function ItemSearchForm({ clothes, setSearchResults }) {
       cloth.name.includes(e.target.value)
     );
     setSearchResults(gottenResults);
+    console.log(gottenResults);
   };
 
   return (

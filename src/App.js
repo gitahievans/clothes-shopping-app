@@ -15,7 +15,6 @@ function App() {
 
     setCartItems([...cartItems, item]);
   };
-  console.log(cartItems);
 
   return (
     <div>

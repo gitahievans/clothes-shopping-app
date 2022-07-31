@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Item({
   item,
@@ -8,6 +9,7 @@ function Item({
   itemGender,
   itemImage,
   itemId,
+  onAddToCart,
 }) {
   return (
     <div className="card" key={itemId}>
