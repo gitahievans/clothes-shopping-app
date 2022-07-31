@@ -1,6 +1,6 @@
 import React from "react";
 
-function Cart({ cartItems }) {
+function Cart({ cartItems, removeFromCart }) {
   console.log(cartItems);
   return (
     <div className="cart-object">
@@ -11,7 +11,9 @@ function Cart({ cartItems }) {
             <img src={item.image} alt={item.name} className="card-image" />
             <p className="card-title">{item.name}</p>
             <p className="card-price">{item.price}</p>
-            <button>Remove from Cart</button>
+            <button onClick={() => removeFromCart(item)}>
+              Remove from Cart
+            </button>
           </div>
         </div>
       ))}

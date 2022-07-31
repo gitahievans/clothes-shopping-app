@@ -40,6 +40,19 @@ function App() {
     }
   }
 
+  const removeFromCart = (item) => {
+    const cartItem = cartItems.find((i) => i.id === item.id);
+    if (cartItem.qty === 1) {
+      setCartItems(cartItems.filter((i) => i.id !== item.id));
+    } else {
+      setCartItems(
+        cartItems.map((i) =>
+          i.id === item.id ? { ...cartItem, qty: cartItem.qty - 1 } : i
+        )
+      );
+    }
+  };
+
   return (
     <div>
       <>
@@ -53,7 +66,13 @@ function App() {
           ></Route>
           <Route
             path="/cart"
-            element={<Cart cartItems={cartItems} addToCart={addToCart} />}
+            element={
+              <Cart
+                cartItems={cartItems}
+                addToCart={addToCart}
+                removeFromCart={removeFromCart}
+              />
+            }
           ></Route>
           <Route path="/product/:itemId" element={<ProductDetails />}></Route>
         </Routes>
