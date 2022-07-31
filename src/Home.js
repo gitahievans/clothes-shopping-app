@@ -34,7 +34,7 @@ function Home({ onAddToCart, cart }) {
           <p className="card-price">{itemPrice}</p>
           <div className="card-btns">
             <div>
-              <Link to={"/product/" + { itemId }}>
+              <Link to={"/product/" + itemId}>
                 <button className="details-button">View details</button>
               </Link>
             </div>
