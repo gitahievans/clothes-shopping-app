@@ -8,23 +8,6 @@ import ProductDetails from "./ProductDetails";
 function App() {
   const [cartItems, setCartItems] = useState([]);
 
-  // const addToCart = (item) => {
-  //   console.log(item);
-  //   if (cartItems.includes(item)) {
-  //     setCartItems([cartItems]);
-  //   } else {
-  //     setCartItems([...cartItems, item]);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   fetch("https://shopping-app-evans.herokuapp.com/clothes")
-  //     .then((r) => r.json())
-  //     .then((data) => {
-  //       setCartItems(data);
-  //     });
-  // }, []);
-
   function addToCart(product) {
     const cartItem = cartItems.find((item) => item.id === product.id);
     if (cartItem) {

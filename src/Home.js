@@ -9,7 +9,6 @@ import ItemSearchForm from "./ItemSearchForm";
 function Home({ addToCart, cart }) {
   const [items, setItems] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
-  // const [inCart, setInCart] = useState(false);
 
   useEffect(() => {
     fetch("https://shopping-app-evans.herokuapp.com/clothes")
@@ -23,26 +22,22 @@ function Home({ addToCart, cart }) {
       });
   }, []);
 
-  const results = searchResults.map((cloth) => (
-    <Item key={cloth.id} cloth={cloth} />
-  ));
+  // const results = searchResults.map((cloth) => (
+  //   <Item key={cloth.id} cloth={cloth} />
+  // ));
 
-  const content = results?.length ? (
-    results
-  ) : (
-    <article>
-      <p>No Matching Items</p>
-    </article>
-  );
+  // const content = results?.length ? (
+  //   results
+  // ) : (
+  //   <article>
+  //     <p>No Matching Items</p>
+  //   </article>
+  // );
 
   const handleDelete = (deletedItem) => {
     const updatedList = items.filter((item) => item.id !== deletedItem.id);
     setItems(updatedList);
   };
-
-  // function carting() {
-  //   setInCart((inCart) => !inCart);
-  // }
 
   const products = items.map((item) => (
     <Item

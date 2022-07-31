@@ -24,8 +24,19 @@ function Item({
       .then(() => onDeleteItem(item));
   };
 
-  function carting() {
-    setInCart((inCart) => !inCart);
+  //Update Item
+  function handleUpdateItem() {
+    fetch(`https://shopping-app-evans.herokuapp.com/clothes/${item.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        price: price,
+      }),
+    })
+      .then((r) => r.json())
+      .then((updatedItem) => onUpdateItem(updatedItem));
   }
 
   return (

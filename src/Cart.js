@@ -6,9 +6,9 @@ function Cart({ cartItems, removeFromCart }) {
     <div className="cart-object">
       {cartItems.length === 0 && <div>Cart is empty</div>}
       {cartItems.map((item) => (
-        <div key={item.id} className="card">
-          <div className="card-body">
-            <img src={item.image} alt={item.name} className="card-image" />
+        <div key={item.id} className="cart">
+          <div className="cart-body">
+            <img src={item.image} alt={item.name} className="cart-image" />
             <p className="card-title">{item.name}</p>
             <p className="card-price">{item.price}</p>
             <button onClick={() => removeFromCart(item)}>
