@@ -6,21 +6,21 @@ import Cart from "./Cart";
 import ItemAddForm from "./ItemAddForm";
 import ItemSearchForm from "./ItemSearchForm";
 
-function Home({ addToCart, items, searchResults, setSearchResults }) {
-  // const [items, setItems] = useState([]);
-  // const [searchResults, setSearchResults] = useState([]);
+function Home({ addToCart }) {
+  const [items, setItems] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
 
-  // useEffect(() => {
-  //   fetch("https://shopping-app-evans.herokuapp.com/clothes")
-  //     .then((r) => r.json())
-  //     .then((clothesData) => {
-  //       setItems(clothesData);
-  //       return clothesData;
-  //     })
-  //     .then((clothesData) => {
-  //       setSearchResults(clothesData);
-  //     });
-  // }, []);
+  useEffect(() => {
+    fetch("https://shopping-app-evans.herokuapp.com/clothes")
+      .then((r) => r.json())
+      .then((clothesData) => {
+        setItems(clothesData);
+        return clothesData;
+      })
+      .then((clothesData) => {
+        setSearchResults(clothesData);
+      });
+  }, []);
 
   const results = searchResults.map((cloth) => (
     <Item key={cloth.id} cloth={cloth} />
@@ -34,10 +34,10 @@ function Home({ addToCart, items, searchResults, setSearchResults }) {
     </article>
   );
 
-  // const handleDelete = (deletedItem) => {
-  //   const updatedList = items.filter((item) => item.id !== deletedItem.id);
-  //   setItems(updatedList);
-  // };
+  const handleDelete = (deletedItem) => {
+    const updatedList = items.filter((item) => item.id !== deletedItem.id);
+    setItems(updatedList);
+  };
 
   // const handleUpdateItem = (updatedItem) => {
   //   const updatedItems = items.filter((item) => item.id !== updatedItem.id);
@@ -55,7 +55,7 @@ function Home({ addToCart, items, searchResults, setSearchResults }) {
       itemImage={item.image}
       key={item.id}
       addToCart={addToCart}
-      // onDeleteItem={handleDelete}
+      onDeleteItem={handleDelete}
     />
   ));
 
