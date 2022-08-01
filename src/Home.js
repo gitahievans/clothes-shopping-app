@@ -39,11 +39,6 @@ function Home({ addToCart }) {
     setItems(updatedList);
   };
 
-  // const handleUpdateItem = (updatedItem) => {
-  //   const updatedItems = items.filter((item) => item.id !== updatedItem.id);
-  //   setItems(updatedItems);
-  // };
-
   const products = items.map((item) => (
     <Item
       item={item}
