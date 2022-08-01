@@ -12,3 +12,5 @@ Features:
 
 API: Own made Json API deployed on Heroku.
 License: MIT License.
+App site: https://shop-app-dun.vercel.app/
+API: https://dashboard.heroku.com/apps/shopping-app-evans
