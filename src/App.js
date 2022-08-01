@@ -52,9 +52,12 @@ function App() {
 
   return (
     <div>
-      <>
+      <div className="title-nav">
+        <div className="app-title-container">
+          <h1 className="app-title">Clothes Collection</h1>
+        </div>
         <Navbar cart={cartItems} />
-      </>
+      </div>
       <div className="main-container">
         <Routes>
           <Route

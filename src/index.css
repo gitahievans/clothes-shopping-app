@@ -7,11 +7,13 @@
 /*NAVBAR*/
 .navbar  {
     background-color: cadetblue;
+        border-radius: 20px;
 }
 
 .nav{
     display: flex;
     justify-content: space-around;
+        height: 55px;
 }
 .cart {
     height: 20px;
@@ -206,4 +208,19 @@ input {
 .cart-image {
     height: 13rem;
     width: 100%;
+}
+.app-title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 50%;
+    margin-left: 25%;
+    background-color: cadetblue;
+    margin-bottom: 1px;
+    border-radius: 10px;
+}
+
+.title-nav {
+    background-color: lightgray;
 }
