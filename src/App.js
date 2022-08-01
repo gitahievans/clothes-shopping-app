@@ -7,6 +7,8 @@ import ProductDetails from "./ProductDetails";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
+  const [items, setItems] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
 
   function addToCart(product) {
     const cartItem = cartItems.find((item) => item.id === product.id);
@@ -36,6 +38,18 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    fetch("https://shopping-app-evans.herokuapp.com/clothes")
+      .then((r) => r.json())
+      .then((clothesData) => {
+        setItems(clothesData);
+        return clothesData;
+      })
+      .then((clothesData) => {
+        setSearchResults(clothesData);
+      });
+  }, []);
+
   return (
     <div>
       <>
@@ -45,7 +59,15 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<Home cart={cartItems} addToCart={addToCart} />}
+            element={
+              <Home
+                cart={cartItems}
+                addToCart={addToCart}
+                items={items}
+                searchResults={searchResults}
+                setSearchResults={setSearchResults}
+              />
+            }
           ></Route>
           <Route
             path="/cart"

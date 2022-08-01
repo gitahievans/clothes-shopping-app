@@ -11,10 +11,10 @@ function Item({
   itemId,
   addToCart,
   onDeleteItem,
+  onUpdateItem,
   onCarting,
+  cloth,
 }) {
-  const [inCart, setInCart] = useState(false);
-
   // delete ITEM
   const handleDelete = () => {
     fetch(`https://shopping-app-evans.herokuapp.com/clothes/${itemId}`, {
@@ -25,19 +25,19 @@ function Item({
   };
 
   //Update Item
-  function handleUpdateItem() {
-    fetch(`https://shopping-app-evans.herokuapp.com/clothes/${item.id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        price: price,
-      }),
-    })
-      .then((r) => r.json())
-      .then((updatedItem) => onUpdateItem(updatedItem));
-  }
+  // function handleUpdateItem() {
+  //   fetch(`https://shopping-app-evans.herokuapp.com/clothes/${item.id}`, {
+  //     method: "PATCH",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       itemPrice: itemPrice,
+  //     }),
+  //   })
+  //     .then((r) => r.json())
+  //     .then((updatedItem) => onUpdateItem(updatedItem));
+  // }
 
   return (
     <div className="card" key={itemId}>
@@ -53,7 +53,7 @@ function Item({
           </div>
           <div className="card-bottom">
             <button className="cart-button" onClick={() => addToCart(item)}>
-              {inCart ? "Remove" : "Add to Cart"}
+              Add To Cart
             </button>
             <div className="remove">
               <button className="delete" onClick={() => handleDelete()}>

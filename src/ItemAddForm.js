@@ -63,13 +63,7 @@ function ItemAddForm() {
           value={size}
           onChange={(e) => setSize(e.target.value)}
         />
-        <input
-          className="item-input"
-          type="text"
-          placeholder="Enter image url"
-          value={imageUrl}
-          onChange={(e) => setImageUrl(e.target.value)}
-        />
+
         {/*<button type="upload">Upload</button>*/}
         <div className="select">
           <select
