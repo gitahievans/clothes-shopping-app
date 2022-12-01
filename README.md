@@ -1,6 +1,6 @@
 # Phase-2 Final-project **shopping App ** Author: EVANS GITAHI
 
-Project Description: The shooping application displays a collection of cloth items where a user can view them, add them to a Cart and also view more detailed information about the items.
+Project Description: The shopping application displays a collection of cloth items where a user can view them, add them to a Cart and also view more detailed information about the items.
 
 Features:
 =>A collection page that displays the collection of items.
