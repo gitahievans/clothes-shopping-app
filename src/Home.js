@@ -1,16 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Routes, Route } from "react-router-dom";
+import React, { useState } from "react";
 import Item from "./Item";
-import Cart from "./Cart";
-import ItemAddForm from "./ItemAddForm";
 import ItemSearchForm from "./ItemSearchForm";
 import { faker } from "@faker-js/faker";
 import "./styles/item.css";
 
 function Home({ cart, setCart }) {
-  // console.log(cart);
-
+  const [searchResults, setSearchResults] = useState([]);
   faker.seed(100);
 
   const productsArray = [...Array(20)].map(() => ({
@@ -21,14 +16,22 @@ function Home({ cart, setCart }) {
   }));
 
   const [products] = useState(productsArray);
-  // console.log(products);
+
+  const results = searchResults.map((prod) => (
+    <Item prod={prod} key={prod.id} cart={cart} setCart={setCart} />
+  ));
+
+  const items = products.map((prod) => (
+    <Item prod={prod} key={prod.id} cart={cart} setCart={setCart} />
+  ));
+
+  const toDisplay = results.length > 0 ? results : items;
 
   return (
-    <div className="productsContainer">
-      {products.map((prod) => (
-        <Item prod={prod} key={prod.id} cart={cart} setCart={setCart} />
-      ))}
-    </div>
+    <>
+      <ItemSearchForm products={products} setSearchResults={setSearchResults} />
+      <div className="productsContainer">{toDisplay}</div>
+    </>
   );
 }
 

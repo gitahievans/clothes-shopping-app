@@ -18,7 +18,7 @@ function Cart({ cart, setCart }) {
 
   return (
     <>
-      <h1>{cart.length === 0 ? "You have no items in your cart" : null}</h1>
+      <h1>{cart.length === 0 ? "Your cart is empty" : null}</h1>
       <span>Total: Ksh.{total}</span>
       <div>
         {cart.map((prod) => (

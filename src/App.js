@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import Navbar from "./Navbar";
 import Cart from "./Cart";
-import ItemDetails from "./ItemDetails";
+// import ItemDetails from "./ItemDetails";
 
 function App() {
   const [cart, setCart] = useState([]);
