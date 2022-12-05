@@ -1,227 +1,25 @@
-.container {
-    background: teal;
-    display: flex;
-    border-radius: 10px;
-    margin-top: 1px;
-}
-/*NAVBAR*/
-.navbar  {
-    background-color: cadetblue;
-    border-radius: 20px;
-    
+.header {
+    display: block;
+    text-align: center;
+    font-size: 30px;
+    margin: 10px 0;
 }
 
-.nav{
+.nav {
     display: flex;
+    list-style: none;
     justify-content: space-around;
-    height: 55px;
-
-}
-.cart {
-    height: 20px;
-    width: 20px;
-}
-
-.clothes-container {
-
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
-    gap: 2rem;
-    justify-content: center;
-    margin-top: 1rem;
-
-    flex-grow: 1;
-
-}
-
-/*CARD*/
-.card {
-    overflow: hidden;
-    box-shadow: 0 2px 20px cadetblue;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    transition: transform 400ms ease-in;
-}
-.card-body {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-justify-content: center;
+    background-color: black;
+    height: 80px;
+    margin-top: 0;
+    color: aliceblue;
 }
 
-.card:hover {
-    transform: scale(1.012);
+.nav>li {
+    color: white;
 }
 
-.card-image {
-    height: 8rem;
-    width: 70%;
-}
-.delete-icon-image {
-    height: 20px;
-    width: 20px;
-}
-.card-btns {
-    margin-bottom: 5px;
-}
-.remove {
-    width: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-.remove img {
-    cursor: pointer;
-}
-.details-button,
-.cart-button {
-    padding: 5px;
-    font-weight: bold;
-    font-size: 16px;
-    border: 2px solid cadetblue;
-    background: transparent;
-    border-radius: 2px;
-    margin-top: 1px;
-    box-shadow: 0 2px 20px cadetblue;
-    cursor: pointer;
-    ;
-}
-
-/*ITEM SEARCH FORM*/
-
-.search-container {
-    background-color: linen;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-input {
-    height: 20px;
-    margin: 5px;
-}
-.search-image {
-    height: 15px;
-    width: 15px;
-}
-
-.form-search {
-    margin-top: 1px;
-    width: 100%;
-    height: 30px;
-    max-width: 700px;
-    background: cadetblue;
-    display: flex;
-    align-items: center;
-    border-radius: 50px;
-}
-
-.form-search input {
-    background: transparent;
-    flex: 1;
-    border: 0;
-    outline: none;
-    font-size: 15px;
-}
-
-::placeholder {
-    color: darkslategrey;
-}
-
-.form-search button {
-    width: 25px;
-
-}
-
-.form-search button {
-    border: 0;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    background: darkslategrey;
-    cursor: pointer;
-}
-
-
-/*ITEM_ADD__FORM*/
-.item-form {
-    height: 500px;
-    width: 25%;
-    margin-top: 1rem;
-    box-shadow: 0 2px 20px cadetblue;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.inputs {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.item-input {
-    width: 250px;
-}
-
-.selector,
-.form-button {
-    width: auto;
-    padding: 10px;
-    font-weight: bold;
-    font-size: 16px;
-    border: 2px solid cadetblue;
-    background: transparent;
-    border-radius: 2px;
-    margin-top: 1px;
-    box-shadow: 0 2px 20px cadetblue;
-    cursor: pointer;
-    margin-top: 15px;
-}
-
-.form-button {
-    margin-top: 110px;
-}
-
-/*CART*/
-.cart-object{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
-        gap: 2rem;
-        justify-content: center;
-        margin-top: 1rem;
-    
-        flex-grow: 1;
-}
-
-
-
-.cart-body{
-    width: 150px;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.cart-image {
-    height: 13rem;
-    width: 100%;
-}
-
-.app-title-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 30px;
-    width: 50%;
-    margin-left: 25%;
-    background-color: cadetblue;
-    margin-bottom: 1px;
-    border-radius: 10px;
-}
-.title-nav{
-    background-color: lightgray;
+.nav>li:hover {
+    color: turquoise;
 }

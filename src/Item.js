@@ -1,72 +1,32 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import "./styles/item.css";
 
-function Item({
-  item,
-  itemName,
-  itemPrice,
-  itemColor,
-  itemGender,
-  itemImage,
-  itemId,
-  addToCart,
-  onDeleteItem,
-  onUpdateItem,
-  onCarting,
-  cloth,
-}) {
-  // delete ITEM
-  const handleDelete = () => {
-    fetch(`https://shopping-app-evans.herokuapp.com/clothes/${itemId}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then(() => onDeleteItem(item));
-  };
-
-  //Update Item
-  // function handleUpdateItem() {
-  //   fetch(`https://shopping-app-evans.herokuapp.com/clothes/${item.id}`, {
-  //     method: "PATCH",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({
-  //       itemPrice: itemPrice,
-  //     }),
-  //   })
-  //     .then((r) => r.json())
-  //     .then((updatedItem) => onUpdateItem(updatedItem));
-  // }
-
+function Item({ prod, cart, setCart }) {
   return (
-    <div className="card" key={itemId}>
-      <div className="card-body">
-        <img className="card-image" src={itemImage} />
-        <p className="card-title">{itemName}</p>
-        <p className="card-price">{itemPrice}</p>
-        <div className="card-btns">
-          <div>
-            <Link to={"/product/" + itemId}>
-              <button className="details-button">View details</button>
-            </Link>
-          </div>
-          <div className="card-bottom">
-            <button className="cart-button" onClick={() => addToCart(item)}>
-              Add To Cart
-            </button>
-            <div className="remove">
-              <button className="delete" onClick={() => handleDelete()}>
-                <img
-                  className="delete-icon-image"
-                  src="https://cdn-icons.flaticon.com/png/512/4980/premium/4980320.png?token=exp=1659044681~hmac=c6d277c1b22aebcd2e2f1c05bfb221f3"
-                  alt="Remove"
-                ></img>
-              </button>
-            </div>
-          </div>
-        </div>
+    <div className="products">
+      <img src={prod.image} alt={prod.name} />
+      <div className="productDesc">
+        <span style={{ fontWeight: 700 }}>{prod.name}</span>
+        <span>{prod.price}</span>
       </div>
+      {cart.includes(prod) ? (
+        <button
+          onClick={() => {
+            setCart(cart.filter((p) => p.id !== prod.id));
+          }}
+        >
+          Remove from cart
+        </button>
+      ) : (
+        <button
+          className="add"
+          onClick={() => {
+            setCart([...cart, prod]);
+          }}
+        >
+          Add to Cart
+        </button>
+      )}
     </div>
   );
 }

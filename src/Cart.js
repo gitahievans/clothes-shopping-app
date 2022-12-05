@@ -1,23 +1,31 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import Item from "./Item";
 
-function Cart({ cartItems, removeFromCart }) {
-  console.log(cartItems);
+function Cart({ cart, setCart }) {
+  const [total, setTotal] = useState();
+
+  useEffect(() => {
+    setTotal(
+      cart.reduce(
+        (previousValue, currentValue) =>
+          previousValue + Number(currentValue.price),
+        0
+      )
+    );
+  }, [cart]);
+
   return (
-    <div className="cart-object">
-      {cartItems.length === 0 && <div>Cart is empty</div>}
-      {cartItems.map((item) => (
-        <div key={item.id} className="cart">
-          <div className="cart-body">
-            <img src={item.image} alt={item.name} className="cart-image" />
-            <p className="card-title">{item.name}</p>
-            <p className="card-price">{item.price}</p>
-            <button onClick={() => removeFromCart(item)}>
-              Remove from Cart
-            </button>
-          </div>
-        </div>
-      ))}
-    </div>
+    <>
+      <h1>{cart.length === 0 ? "You have no items in your cart" : null}</h1>
+      <span>Total: Ksh.{total}</span>
+      <div>
+        {cart.map((prod) => (
+          <Item prod={prod} key={prod.id} cart={cart} setCart={setCart} />
+        ))}
+      </div>
+    </>
   );
 }
 
