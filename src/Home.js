@@ -3,19 +3,35 @@ import Item from "./Item";
 import ItemSearchForm from "./ItemSearchForm";
 import { faker } from "@faker-js/faker";
 import "./styles/item.css";
+import api from "./api/axios";
+import { useEffect } from "react";
 
 function Home({ cart, setCart }) {
   const [searchResults, setSearchResults] = useState([]);
-  faker.seed(100);
+  const [products, setProducts] = useState([]);
 
-  const productsArray = [...Array(20)].map(() => ({
-    id: faker.datatype.uuid(),
-    name: faker.commerce.product(),
-    price: faker.commerce.price(),
-    image: faker.image.fashion(),
-  }));
+  // faker.seed(100);
 
-  const [products] = useState(productsArray);
+  // const productsArray = [...Array(20)].map(() => ({
+  //   id: faker.datatype.uuid(),
+  //   name: faker.commerce.product(),
+  //   price: faker.commerce.price(),
+  //   image: faker.image.fashion(),
+  // }));
+
+  // const [products] = useState(productsArray);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await api.get();
+        setProducts(response.data);
+      } catch (err) {
+        console.log(err.response);
+      }
+    };
+    fetchProducts();
+  }, []);
 
   const results = searchResults.map((prod) => (
     <Item prod={prod} key={prod.id} cart={cart} setCart={setCart} />
