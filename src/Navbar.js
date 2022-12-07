@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+
 function Navbar({ cart }) {
   return (
     <div className="nav">
@@ -9,10 +10,7 @@ function Navbar({ cart }) {
       </Link>
       <Link to="/cart">
         <div>
-          <h2>
-            Cart
-            <>({cart.length} Items)</>
-          </h2>
+          <h2>Cart {cart.length}</h2>
         </div>
       </Link>
     </div>

@@ -8,18 +8,21 @@ const ItemSearchForm = ({ products, setSearchResults }) => {
   const handleChange = (e) => {
     if (!e.target.value) return setSearchResults(products);
     const searchResultsArray = products.filter((prod) =>
-      prod.name.toLowerCase().includes(e.target.value)
+      prod.title.toLowerCase().includes(e.target.value)
     );
     setSearchResults(searchResultsArray);
-    // console.log(searchResultsArray);
   };
 
   return (
-    <div>
+    <>
       <form className="searcher" onSubmit={handleSubmit}>
-        <input type="text" className="search_inp" onChange={handleChange} />
+        <input 
+        type="text" 
+        className="search_inp" 
+        onChange={handleChange} 
+        placeholder="Search items"/>
       </form>
-    </div>
+    </>
   );
 };
 

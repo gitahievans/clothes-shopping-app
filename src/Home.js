@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import Item from "./Item";
+import Product from "./Product";
 import ItemSearchForm from "./ItemSearchForm";
 import { faker } from "@faker-js/faker";
 import "./styles/item.css";
 import api from "./api/axios";
 import { useEffect } from "react";
+import Button from "@mui/material/Button";
+
 
 function Home({ cart, setCart }) {
   const [searchResults, setSearchResults] = useState([]);
@@ -34,18 +36,39 @@ function Home({ cart, setCart }) {
   }, []);
 
   const results = searchResults.map((prod) => (
-    <Item prod={prod} key={prod.id} cart={cart} setCart={setCart} />
+    <Product prod={prod} key={prod.id} cart={cart} setCart={setCart} />
   ));
 
   const items = products.map((prod) => (
-    <Item prod={prod} key={prod.id} cart={cart} setCart={setCart} />
+    <Product prod={prod} key={prod.id} cart={cart} setCart={setCart} />
   ));
 
   const toDisplay = results.length > 0 ? results : items;
 
   return (
     <>
-      <ItemSearchForm products={products} setSearchResults={setSearchResults} />
+      <div className="hero">
+        <div className="hero-cont">
+          <div className="hero-text">
+            <h1>
+              Welcome to <span style={{ color: "#40bacf" }}>Shopzilla</span>{" "}
+            </h1>
+            <p>
+              Our app is the perfect place to shop for all your favorite
+              products.With a wide selection of products from top brands, easy
+              navigation and checkout, and fast, reliable shipping, our app
+              offers a seamless and enjoyable shopping experience.
+            </p>
+          </div>
+          <Button variant="contained">Take a look around.</Button>
+        </div>
+        <div className="search-bar">
+          <ItemSearchForm
+            products={products}
+            setSearchResults={setSearchResults}
+          />
+        </div>
+      </div>
       <div className="productsContainer">{toDisplay}</div>
     </>
   );

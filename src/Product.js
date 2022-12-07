@@ -1,34 +1,37 @@
 import React from "react";
 import "./styles/item.css";
+import Button from "@mui/material/Button";
 
-function Item({ prod, cart, setCart }) {
+
+function Product({ prod, cart, setCart }) {
   return (
     <div className="products">
-      <img src={prod.image} alt={prod.name} />
+      <img src={prod.image} alt={prod.title} />
       <div className="productDesc">
-        <span style={{ fontWeight: 700 }}>{prod.name}</span>
-        <span>{prod.price}</span>
+        <span style={{ fontWeight: 300, fontSize: "20px" }}>{prod.title}</span>
+        <span>$ {prod.price}</span>
       </div>
       {cart.includes(prod) ? (
-        <button
+        <Button
+          variant="contained"
           onClick={() => {
             setCart(cart.filter((p) => p.id !== prod.id));
           }}
         >
           Remove from cart
-        </button>
+        </Button>
       ) : (
-        <button
-          className="add"
+        <Button
+          variant="contained"
           onClick={() => {
             setCart([...cart, prod]);
           }}
         >
           Add to Cart
-        </button>
+        </Button>
       )}
     </div>
   );
 }
 
-export default Item;
+export default Product;
