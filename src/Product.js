@@ -1,9 +1,15 @@
 import React from "react";
 import "./styles/item.css";
 import Button from "@mui/material/Button";
-
+import { useNavigate } from "react-router-dom";
 
 function Product({ prod, cart, setCart }) {
+  const navigate = useNavigate();
+
+  // const handleClick = (prod) => {
+  //   navigate("/product/:prod.id")
+  // }
+  // onClick={handleClick}
   return (
     <div className="products">
       <img src={prod.image} alt={prod.title} />

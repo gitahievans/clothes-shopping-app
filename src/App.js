@@ -4,13 +4,13 @@ import Home from "./Home";
 import Navbar from "./Navbar";
 import Cart from "./Cart";
 import "./index.css";
-// import ItemDetails from "./ItemDetails";
+import ItemDetails from "./ProductDetails";
 
 function App() {
   const [cart, setCart] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const [products, setProducts] = useState([]);
-
+  // console.log(products);
   return (
     <>
       <Navbar cart={cart} />
@@ -33,7 +33,12 @@ function App() {
             path="/cart"
             element={<Cart cart={cart} setCart={setCart} />}
           ></Route>
-          {/*<Route path="/product/:itemId" element={<ItemDetails />}></Route>*/}
+          {/*<Route
+            path="/product/:itemId"
+            element={
+              <ItemDetails products={products} setProducts={setProducts} />
+            }
+          ></Route>*/}
         </Routes>
       </div>
     </>

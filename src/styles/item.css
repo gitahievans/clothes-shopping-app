@@ -16,6 +16,7 @@ a {
 
 .products {
     height: 400px;
+    width: 265px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,8 +32,8 @@ a {
 }
 
 .products>img {
+    height: 70%;
     width: 100%;
-    height: 60%;
 }
 
 .productDesc {
@@ -50,10 +51,47 @@ a {
 }
 
 .cart {
-    height: 85vh;
-    background-color: azure;
+    height: 80vh;
     display: flex;
-    padding: 15px;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    flex-direction: column;
+align-items: center;}
+
+.cart h2{
+    margin: 5px;
+    align-self: flex-start;
 }
+.cart-empty {
+    height: 75vh;
+    background-color: rgb(255, 255, 255);
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.cart-empty img{
+    height: 400px;
+    width: auto;
+}
+
+.cart-conts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
+    gap: 2rem;
+}
+
+.cart button {
+    width: 10%;
+    background-color: rgb(30, 78, 200);
+    color: white;
+    border-radius: 17px;
+    padding: 10px 20px;
+    font-size: 15px;
+    margin-top: 15px;
+}
+
+.cart button:hover {
+    transform: scale(1.1);
+    font-size: 18px;
+}
+

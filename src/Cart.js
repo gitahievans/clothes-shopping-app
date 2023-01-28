@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import Product from "./Product";
-import "./styles/item.css"
+import "./styles/item.css";
 
 function Cart({ cart, setCart }) {
   const [total, setTotal] = useState();
@@ -18,16 +18,33 @@ function Cart({ cart, setCart }) {
   }, [cart]);
 
   return (
-    <div className="cart">  
-    <h1>{cart.length === 0 ? "Your cart is empty" : null}</h1>
-      <span>Total: Ksh.{total}</span>
-      <div>
+    <div className="cart">
+      <h2>Total: Ksh.{total}</h2>
+      <h1>
+        {cart.length === 0 ? (
+          <>
+            {" "}
+            <div className="cart-empty">
+              {" "}
+              <img
+                src="https://chillydraji.files.wordpress.com/2015/08/empty_cart.jpeg"
+                alt="empty"
+              />
+              Your cart is empty 😟
+            </div>
+          </>
+        ) : null}
+      </h1>
+
+      <div className="cart-conts ">
         {cart.map((prod) => (
           <Product prod={prod} key={prod.id} cart={cart} setCart={setCart} />
         ))}
       </div>
+      <button>
+        Checkout <span>{total} Ksh.</span>
+      </button>
     </div>
-
   );
 }
 

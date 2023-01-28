@@ -13,14 +13,7 @@
     /* position: fixed; */
     background-color: black;
     height: 80px;
-}
-
-.nav>li {
-    color: white;
-}
-
-.nav>li:hover {
-    color: turquoise;
+    position: fixed;
 }
 
 
@@ -31,7 +24,7 @@
     /* background-attachment: fixed; */
     background-size: cover;
     background-repeat: no-repeat;
-    height: 38vh;
+    height: 25vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -43,15 +36,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin-top: 5%;
+    margin-top: 1%;
     width: 35%;
     margin-left: 120px;
 }
 
-.hero Button {
-    width: 200px;
-    margin-top: 2%;
-}
 
 .hero h1 {
     font-size: 37px;

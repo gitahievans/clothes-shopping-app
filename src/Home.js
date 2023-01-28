@@ -7,22 +7,14 @@ import api from "./api/axios";
 import { useEffect } from "react";
 import Button from "@mui/material/Button";
 
-
-function Home({ cart, setCart }) {
-  const [searchResults, setSearchResults] = useState([]);
-  const [products, setProducts] = useState([]);
-
-  // faker.seed(100);
-
-  // const productsArray = [...Array(20)].map(() => ({
-  //   id: faker.datatype.uuid(),
-  //   name: faker.commerce.product(),
-  //   price: faker.commerce.price(),
-  //   image: faker.image.fashion(),
-  // }));
-
-  // const [products] = useState(productsArray);
-
+function Home({
+  cart,
+  setCart,
+  products,
+  setProducts,
+  searchResults,
+  setSearchResults,
+}) {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -60,7 +52,6 @@ function Home({ cart, setCart }) {
               offers a seamless and enjoyable shopping experience.
             </p>
           </div>
-          <Button variant="contained">Take a look around.</Button>
         </div>
         <div className="search-bar">
           <ItemSearchForm
