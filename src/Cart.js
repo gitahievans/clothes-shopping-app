@@ -19,6 +19,7 @@ function Cart({ cart, setCart }) {
 
   return (
     <div className="cart">
+      {" "}
       <h2>Total: Ksh.{total}</h2>
       <h1>
         {cart.length === 0 ? (
@@ -35,13 +36,12 @@ function Cart({ cart, setCart }) {
           </>
         ) : null}
       </h1>
-
       <div className="cart-conts ">
         {cart.map((prod) => (
           <Product prod={prod} key={prod.id} cart={cart} setCart={setCart} />
         ))}
       </div>
-      <button>
+      <button className="checkout">
         Checkout <span>{total} Ksh.</span>
       </button>
     </div>
